@@ -31,7 +31,7 @@ export default class EventApiListener extends LightningElement {
             let myTide = obj.data.payload.Predicted_Height__c;
             let myLevel = obj.data.payload.Preliminary_Height__c;
             let myId = that.events.length + 1
-            let newEvent = [{id: myId, Sensor: mySesnor, DateTime:myDateTime, Tide: myTide, level: myLevel}];
+            let newEvent = [{id: myId, Sensor: mySensor, DateTime:myDateTime, Tide: myTide, level: myLevel}];
             let bumper = newEvent.concat(that.events);
             that.events = bumper;
             that.showToast(mySensor);
