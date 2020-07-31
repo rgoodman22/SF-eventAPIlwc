@@ -34,7 +34,6 @@ export default class EventApiListener extends LightningElement {
             let newEvent = [{id: myId, Sensor: mySensor, DateTime:myDateTime, Tide: myTide, level: myLevel}];
             let bumper = newEvent.concat(that.events);
             that.events = bumper;
-            that.showToast(mySensor);
         };
 
         subscribe(this.channelName, -1, messageCallback).then(response => {
