@@ -7,12 +7,9 @@ export default class EventApiListener extends LightningElement {
     channelName = '/event/Water_Level_Reading__e';
     isSubscribeDisabled = false;
     isUnsubscribeDisabled = !this.isSubscribeDisabled;
-    show = true;
 
     subscription = {};
-
     events = [];
-    myID = 0;
 
     handleChannelName(event) {
         this.channelName = event.target.value;
@@ -33,10 +30,11 @@ export default class EventApiListener extends LightningElement {
             let myDateTime = obj.data.payload.DateTime__c;
             let myTide = obj.data.payload.Predicted_Height__c;
             let myLevel = obj.data.payload.Preliminary_Height__c;
-            let myArray = myDateTime + ": " + mySensor + " Height: " + myLevel + " Tide: " + myTide;
-            that.events.unshift(myArray);
-            that.myID +=1;
-            that.showToast(myDateTime, mySensor);
+            let myId = that.events.length + 1
+            let newEvent = [{id: myId, Sensor: mySesnor, DateTime:myDateTime, Tide: myTide, level: myLevel}];
+            let bumper = newEvent.concat(that.events);
+            that.events = bumper;
+            that.showToast(mySensor);
         };
 
         subscribe(this.channelName, -1, messageCallback).then(response => {
@@ -71,6 +69,10 @@ export default class EventApiListener extends LightningElement {
             message: toastMessage
         });
         this.dispatchEvent(event);
+    }
+
+    get getEvents() {
+        return this.events;
     }
 }
 

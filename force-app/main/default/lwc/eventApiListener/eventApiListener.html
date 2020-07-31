@@ -13,10 +13,10 @@
             <p class="data-title" title="data-title"><b style="font-size:larger;">Data Stream</b></p> 
             <div class="slds-container_fluid slds-scrollable_y content" style = "height:300pt">
                 <!--300 pt fits -->
-                <template for:each = {events} for:item = "data">
-                    <div key= {myID} class="slds-p-around_small slds-border_top">
+                <template for:each = {getEvents} for:item = "data">
+                    <div key= {data.id} class="slds-p-around_small slds-border_top">
                         <div class="slds-grid slds-has-flexi-truncate">
-                            <p>{data}</p>
+                            <p>Timestamp: {data.DateTime} Location: {data.Sensor} Level: {data.level}</p>
                         </div>
                     </div>
                 </template>
