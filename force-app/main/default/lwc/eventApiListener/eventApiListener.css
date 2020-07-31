@@ -1,0 +1,23 @@
+.topP1 {
+    vertical-align: middle;
+    text-align: center;
+    line-height: 200%;
+    font-size: 16;
+    font-style: italic;
+    font-weight: 100px;
+}
+
+.slds-m-around_medium {
+    text-align: center;
+    font-weight: initial;
+}
+
+.slds-card__header {
+    font-weight: bold;
+}
+
+.data-title {
+    padding-left: 30pt;
+    font-size: 120%;
+    text-decoration: underline;
+}
