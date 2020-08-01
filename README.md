@@ -1,7 +1,3 @@
-# EmpApi Lightning Web Component Test
+# SF-eventAPIlwc
 
-Code from the Emp API component documentation: https://developer.salesforce.com/docs/component-library/bundle/lightning-emp-api/documentation
-
-## Modifications
-
-Planned modification to handle messages in UI versus in console.
+LWC for NOAA coastal flooding demo displaying platform events from water level reads as they come in.  Adapted from demo code from lightning/emAPI example, as well as from Lightning Design Card templates.  Assistance throughout from John Scardino.
