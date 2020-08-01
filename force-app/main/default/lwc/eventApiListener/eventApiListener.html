@@ -1,8 +1,30 @@
 <template>
-    <lightning-card class= "slds-card__header" title="Live Water Level Updates" icon-name="custom:custom14">
-        <div class="slds-m-around_medium">
-            <p class="topP1">Use the buttons to subscribe to coastal flood data.</p>
-            <lightning-button variant="success" label="Subscribe" title="Subscribe"
+    <article class="slds-card">
+        <div class="slds-grid slds-einstein-header slds-card__header">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-grid slds-grid_vertical-align-center slds-size_3-of-4 slds-medium-size_2-of-3">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container slds-icon-utility-salesforce1">
+                            <svg class="slds-icon slds-icon_small slds-icon-text-default" aria-hidden="true">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#salesforce1"></use>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <h2 class="slds-truncate" title="Einstein (10+)">
+                            <a href="https://tidesandcurrents.noaa.gov/map/index.shtml?lat=23.017401765500033&lng=-29.345107654209695&zoom=10" class="slds-card__header-link" title="Live Flood Data">
+                            <span class="slds-text-heading_small">Live Water Level Updates</span>
+                            </a>
+                        </h2>
+                    </div>
+                </div>
+                <div class="slds-einstein-header__figure slds-size_1-of-4 slds-medium-size_1-of-3"></div>
+            </header>
+        </div>
+        <div class="slds-m-around_medium slds-card__body slds-card__body_inner slds-text-align_center">
+            <p class="topP1">Use the buttons to subscribe to real time water level reads.</p>
+            <lightning-button 
+                variant="success" label="Subscribe" title="Subscribe"
                 onclick={handleSubscribe} disabled={isSubscribeDisabled}
                 class="slds-m-left_x-small"></lightning-button>
             <lightning-button variant="destructive" label="Unsubscribe" title="Unsubscribe"
@@ -10,17 +32,28 @@
                 class="slds-m-left_x-small"></lightning-button>
         </div>
         <template if:true={isSubscribeDisabled}>
-            <p class="data-title" title="data-title"><b style="font-size:larger;">Data Stream</b></p> 
-            <div class="slds-container_fluid slds-scrollable_y content" style = "height:300pt">
-                <!--300 pt fits -->
-                <template for:each = {getEvents} for:item = "data">
-                    <div key= {data.id} class="slds-p-around_small slds-border_top">
-                        <div class="slds-grid slds-has-flexi-truncate">
-                            <p>Timestamp: {data.DateTime} Location: {data.Sensor} Level: {data.level}</p>
+            <div class="slds-card__body slds-card__body_inner">
+                <article class="slds-card slds-card_boundary">
+                    <div class="slds-card__header slds-grid">
+                      <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                        <div class="slds-media__figure">
+                            <span class="slds-icon_container slds-icon_container_circle slds-icon-action-description" title="Description of icon when needed">
+                                <svg class="slds-icon" aria-hidden="true">
+                                  <use xlink:href="/assets/icons/action-sprite/svg/symbols.svg#download"></use>
+                                </svg>
+                            </span>
                         </div>
+                        <div class="slds-media__body">
+                          <h2 class="slds-card__header-title">
+                            <a class="slds-card__header-link slds-truncate" title="Card Header"></a>
+                              <span>Data Stream</span>
+                          </h2>
+                        </div>
+                      </header>
                     </div>
-                </template>
+                    <div class="slds-card__body slds-card__body_inner">This is a card inside an `slds-card` to illustrate how `slds-card_boundary` adds a rounded border when desired.</div>
+                  </article>
             </div>
         </template>
-    </lightning-card>
+    </article>
 </template>
